@@ -1,3 +1,6 @@
+// =============================================
+// Herramienta 3: Gestor de Tareas
+// =============================================
 (function() {
     'use strict';
     
@@ -9,6 +12,7 @@
     var tareasPendientes = document.getElementById('tareasPendientes');
     var tareasCompletadas = document.getElementById('tareasCompletadas');
     
+    // Cargar tareas desde localStorage
     function cargarTareas() {
         if (localStorage.getItem('tareas')) {
             try {
@@ -19,13 +23,16 @@
         }
     }
     
+    // Guardar tareas en localStorage
     function guardarTareas() {
         localStorage.setItem('tareas', JSON.stringify(tareas));
     }
     
     function renderizarTareas() {
+        // Limpiar el contenedor
         listaTareas.innerHTML = '';
         
+        // Separar tareas pendientes y completadas
         var pendientes = [];
         var completadas = [];
         
@@ -37,10 +44,11 @@
             }
         }
         
+        // Ordenar: pendientes primero, luego completadas
         var tareasOrdenadas = pendientes.concat(completadas);
         
         if (tareasOrdenadas.length === 0) {
-            listaTareas.innerHTML = '<p style="color: #7a9a7a; text-align: center; padding: 20px;">No hay tareas aun. Agrega una!</p>';
+            listaTareas.innerHTML = '<p class="empty-message">No hay tareas aún. ¡Agrega una!</p>';
         } else {
             for (var j = 0; j < tareasOrdenadas.length; j++) {
                 (function(indice) {
@@ -67,7 +75,7 @@
                     
                     var btnEliminar = document.createElement('button');
                     btnEliminar.className = 'btn btn-danger btn-small';
-                    btnEliminar.textContent = 'Eliminar';
+                    btnEliminar.textContent = '🗑 Eliminar';
                     btnEliminar.addEventListener('click', function() {
                         eliminarTarea(indice);
                     });
@@ -81,10 +89,12 @@
             }
         }
         
+        // Actualizar estadisticas
         totalTareas.textContent = tareas.length;
         tareasPendientes.textContent = pendientes.length;
         tareasCompletadas.textContent = completadas.length;
         
+        // Guardar en localStorage
         guardarTareas();
     }
     
@@ -95,6 +105,7 @@
     }
     
     function alternarTarea(indice) {
+        // Encontrar la tarea por su indice en el arreglo original
         var pendientes = [];
         var completadas = [];
         
@@ -111,6 +122,7 @@
             var indiceTarea = tareas.indexOf(pendientes[indice]);
             tareas[indiceTarea].completada = !tareas[indiceTarea].completada;
         } else {
+            // Es una tarea completada
             var indiceCompletada = indice - pendientes.length;
             var indiceTarea2 = tareas.indexOf(completadas[indiceCompletada]);
             tareas[indiceTarea2].completada = !tareas[indiceTarea2].completada;
@@ -143,6 +155,7 @@
         renderizarTareas();
     }
     
+    // Evento para agregar tarea
     formularioTareas.addEventListener('submit', function(e) {
         e.preventDefault();
         agregarTarea(inputTarea.value);
@@ -150,9 +163,11 @@
         inputTarea.focus();
     });
     
+    // Inicializar
     cargarTareas();
     renderizarTareas();
     
+    // Guardar antes de cerrar
     window.addEventListener('beforeunload', function() {
         guardarTareas();
     });

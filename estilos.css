@@ -1,4 +1,6 @@
-
+/* ========================================
+   RESET Y ESTILOS BASE
+   ======================================== */
 * {
     margin: 0;
     padding: 0;
@@ -6,80 +8,104 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f0f4f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
     min-height: 100vh;
-    padding: 20px;
-    color: #2d3e2d;
+    padding: 30px 20px;
+    color: #2d3748;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     background: #ffffff;
-    border-radius: 8px;
-    padding: 25px;
-    border: 2px solid #2d7d2d;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 35px 40px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e8edf2;
 }
 
-/* Header */
+/* ========================================
+   HEADER
+   ======================================== */
 header {
     text-align: center;
-    margin-bottom: 25px;
-    border-bottom: 3px solid #1a4f8a;
-    padding-bottom: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 3px solid #2b6cb0;
 }
 
 header h1 {
-    font-size: 2.2rem;
-    color: #1a4f8a;
-    font-weight: bold;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #2b6cb0;
+    letter-spacing: -0.5px;
 }
 
 .subtitle {
-    color: #4a6a4a;
-    font-size: 1rem;
-    margin-top: 5px;
+    color: #4a6a7a;
+    font-size: 1.05rem;
+    margin-top: 6px;
+    font-weight: 400;
 }
 
-/* Navegacion */
+/* ========================================
+   NAVEGACIÓN
+   ======================================== */
 .main-nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 25px;
+    gap: 10px;
+    margin-bottom: 30px;
     justify-content: center;
+    background: #f7fafc;
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
 }
 
 .nav-btn {
     flex: 1;
-    min-width: 140px;
-    padding: 10px 18px;
-    border: 2px solid #1a4f8a;
-    background: #ffffff;
-    border-radius: 6px;
+    min-width: 160px;
+    padding: 12px 20px;
+    border: 2px solid transparent;
+    background: transparent;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 0.95rem;
     font-weight: 600;
-    color: #1a4f8a;
-    transition: all 0.2s ease;
+    color: #4a6a7a;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-btn .icon {
+    font-size: 1.2rem;
 }
 
 .nav-btn:hover {
-    background: #e8f0e8;
+    background: #edf2f7;
+    color: #2b6cb0;
+    transform: translateY(-1px);
 }
 
 .nav-btn.active {
-    background: #1a4f8a;
+    background: #2b6cb0;
     color: #ffffff;
-    border-color: #1a4f8a;
+    border-color: #2b6cb0;
+    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.3);
 }
 
-/* Secciones de Herramientas */
+/* ========================================
+   SECCIONES DE HERRAMIENTAS
+   ======================================== */
 .tool-section {
     display: none;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.4s ease;
 }
 
 .tool-section.active {
@@ -89,225 +115,320 @@ header h1 {
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(12px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
-.tool-section h2 {
-    color: #1a4f8a;
-    margin-bottom: 5px;
+.tool-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.tool-header h2 {
+    color: #2d3748;
     font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.badge {
+    background: #2b6cb0;
+    color: #ffffff;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
 }
 
 .tool-description {
-    color: #4a6a4a;
-    margin-bottom: 18px;
+    color: #4a6a7a;
+    margin-bottom: 20px;
     font-size: 0.95rem;
+    padding: 12px 16px;
+    background: #f7fafc;
+    border-radius: 8px;
+    border-left: 4px solid #2b6cb0;
 }
 
-/* Formularios */
+/* ========================================
+   FORMULARIOS
+   ======================================== */
 .tool-form {
-    background: #f5f8f5;
-    padding: 18px;
-    border-radius: 6px;
-    border: 1px solid #b8d4b8;
+    background: #f7fafc;
+    padding: 22px 24px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.form-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    align-items: flex-end;
-    margin-bottom: 18px;
+    gap: 16px;
+    margin-bottom: 16px;
 }
 
 .form-group {
     flex: 1;
-    min-width: 110px;
+    min-width: 130px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
 }
 
 .form-group label {
     font-weight: 600;
     font-size: 0.85rem;
-    color: #2d5e2d;
+    color: #2d3748;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .form-group input,
 .form-group select {
-    padding: 8px 10px;
-    border: 2px solid #b8d4b8;
-    border-radius: 4px;
+    padding: 10px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
     font-size: 0.95rem;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
     background: #ffffff;
     width: 100%;
+    font-family: inherit;
 }
 
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #1a4f8a;
+    border-color: #2b6cb0;
+    box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.12);
 }
 
-/* Botones */
+/* ========================================
+   BOTONES
+   ======================================== */
 .btn {
-    padding: 8px 20px;
+    padding: 10px 28px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
+    font-family: inherit;
 }
 
 .btn-primary {
-    background: #2d7d2d;
+    background: #2b6cb0;
     color: #ffffff;
-    min-width: 110px;
+    min-width: 140px;
 }
 
 .btn-primary:hover:not(:disabled) {
-    background: #1a5e1a;
+    background: #1a4f8a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(43, 108, 176, 0.3);
 }
 
 .btn-primary:disabled {
-    background: #a8c8a8;
+    background: #a0b8cc;
     cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .btn-danger {
-    background: #8a1a1a;
+    background: #e53e3e;
     color: #ffffff;
-    padding: 4px 10px;
-    font-size: 0.85rem;
-    border-radius: 4px;
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    font-weight: 600;
 }
 
 .btn-danger:hover {
-    background: #6a1212;
+    background: #c53030;
 }
 
 .btn-small {
-    padding: 4px 10px;
-    font-size: 0.85rem;
+    padding: 4px 12px;
+    font-size: 0.8rem;
     min-width: auto;
 }
 
-/* Resultados */
+/* ========================================
+   RESULTADOS
+   ======================================== */
 .result-container {
     margin-top: 12px;
-    padding: 12px 16px;
-    border-radius: 4px;
-    background: #f5f8f5;
-    min-height: 40px;
-    border-left: 4px solid #2d7d2d;
+    padding: 16px 20px;
+    border-radius: 10px;
+    background: #f7fafc;
+    min-height: 50px;
+    border-left: 5px solid #2b6cb0;
+    transition: all 0.3s ease;
 }
 
 .result-container.success {
-    border-left-color: #2d7d2d;
-    background: #eaf5ea;
+    border-left-color: #38a169;
+    background: #f0fff4;
 }
 
 .result-container.error {
-    border-left-color: #8a1a1a;
-    background: #f5eaea;
+    border-left-color: #e53e3e;
+    background: #fff5f5;
 }
 
 .result-container h3 {
-    color: #1a4f8a;
+    color: #2d3748;
     margin-bottom: 4px;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
-.result-text {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #2d3e2d;
+.result-container .result-text {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2d3748;
 }
 
-/* Lista de Tareas */
+.result-container .result-detail {
+    color: #4a6a7a;
+    font-size: 0.9rem;
+    margin-top: 6px;
+}
+
+/* ========================================
+   LISTA DE TAREAS
+   ======================================== */
 .task-list {
-    margin-top: 18px;
+    margin-top: 16px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+    min-height: 60px;
 }
 
 .task-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    background: #f5f8f5;
-    border-radius: 4px;
-    border: 1px solid #d4e8d4;
-    transition: all 0.2s ease;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #f7fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.25s ease;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .task-item:hover {
-    background: #eaf5ea;
+    background: #edf2f7;
+    border-color: #cbd5e0;
 }
 
 .task-item .task-check {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    accent-color: #2b6cb0;
+    flex-shrink: 0;
 }
 
 .task-item .task-text {
     flex: 1;
     font-size: 0.95rem;
-    color: #2d3e2d;
+    color: #2d3748;
+    word-break: break-word;
 }
 
 .task-item .task-text.completed {
     text-decoration: line-through;
-    color: #7a9a7a;
+    color: #a0aec0;
 }
 
 .task-item .task-actions {
     display: flex;
-    gap: 4px;
+    gap: 6px;
+    flex-shrink: 0;
 }
 
-/* Estadisticas de Tareas */
+/* Mensaje vacío */
+.empty-message {
+    color: #a0aec0;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   ESTADÍSTICAS DE TAREAS
+   ======================================== */
 .task-stats {
     margin-top: 18px;
-    padding: 12px;
-    background: #f5f8f5;
-    border-radius: 4px;
-    border: 1px solid #d4e8d4;
+    padding: 14px 20px;
+    background: #f7fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 12px;
 }
 
-.task-stats span {
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.stat-label {
     font-size: 0.9rem;
-    color: #4a6a4a;
+    color: #4a6a7a;
+    font-weight: 500;
 }
 
-.task-stats strong {
-    color: #1a4f8a;
+.stat-value {
+    color: #2b6cb0;
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
-/* Footer */
+/* ========================================
+   FOOTER
+   ======================================== */
 footer {
-    margin-top: 25px;
-    padding-top: 15px;
-    border-top: 2px solid #d4e8d4;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #edf2f7;
     text-align: center;
-    color: #6a8a6a;
+    color: #718096;
     font-size: 0.85rem;
 }
 
-/* Responsive */
+/* ========================================
+   RESPONSIVE
+   ======================================== */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px 18px;
+        border-radius: 12px;
     }
 
     header h1 {
@@ -315,14 +436,28 @@ footer {
     }
 
     .nav-btn {
-        min-width: 90px;
+        min-width: 100px;
         font-size: 0.85rem;
-        padding: 8px 12px;
+        padding: 10px 14px;
     }
 
-    .tool-form {
+    .nav-btn .icon {
+        font-size: 1rem;
+    }
+
+    .tool-header {
         flex-direction: column;
-        align-items: stretch;
+        align-items: flex-start;
+    }
+
+    .tool-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 12px;
     }
 
     .form-group {
@@ -331,42 +466,79 @@ footer {
 
     .btn {
         width: 100%;
+        justify-content: center;
+    }
+
+    .btn-primary {
+        min-width: 100%;
     }
 
     .task-stats {
         flex-direction: column;
         align-items: center;
-        gap: 4px;
+        gap: 6px;
     }
 }
 
 @media (max-width: 480px) {
     body {
-        padding: 10px;
+        padding: 12px 8px;
     }
 
     .container {
-        padding: 10px;
-        border-radius: 4px;
+        padding: 14px 12px;
+        border-radius: 8px;
     }
 
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
     }
 
     .nav-btn {
         min-width: 70px;
-        font-size: 0.75rem;
-        padding: 6px 8px;
+        font-size: 0.7rem;
+        padding: 8px 10px;
+        gap: 4px;
+    }
+
+    .nav-btn .icon {
+        font-size: 0.85rem;
+    }
+
+    .badge {
+        font-size: 0.65rem;
+        padding: 2px 12px;
+    }
+
+    .tool-description {
+        font-size: 0.85rem;
+        padding: 10px 12px;
+    }
+
+    .tool-form {
+        padding: 14px 16px;
     }
 
     .task-item {
         flex-wrap: wrap;
-        padding: 8px;
+        padding: 10px 12px;
     }
 
     .task-item .task-actions {
         width: 100%;
         justify-content: flex-end;
+        margin-top: 4px;
+    }
+
+    .result-container {
+        padding: 12px 14px;
+    }
+
+    .result-container .result-text {
+        font-size: 1rem;
     }
 }

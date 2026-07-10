@@ -1,3 +1,6 @@
+// =============================================
+// Herramienta 2: Conversor Térmico
+// =============================================
 (function() {
     'use strict';
     
@@ -23,6 +26,7 @@
     function convertirTemperatura(valor, origen, destino) {
         var celsius;
         
+        // Convertir a Celsius primero
         switch(origen) {
             case 'C':
                 celsius = valor;
@@ -37,6 +41,7 @@
                 return null;
         }
         
+        // Convertir de Celsius a la unidad destino
         switch(destino) {
             case 'C':
                 return celsius;
@@ -50,13 +55,15 @@
     }
     
     function mostrarResultado(valor, origen, destino, resultado) {
-        var simbolos = { C: 'C', F: 'F', K: 'K' };
+        var simbolos = { C: '°C', F: '°F', K: 'K' };
+        var nombres = { C: 'Celsius', F: 'Fahrenheit', K: 'Kelvin' };
         
         resultadoDiv.className = 'result-container success';
         resultadoDiv.innerHTML = 
-            '<h3>Resultado de la conversion</h3>' +
+            '<h3>Resultado de la conversión</h3>' +
             '<p class="result-text">' +
-            valor + ' ' + simbolos[origen] + ' = ' + resultado.toFixed(2) + ' ' + simbolos[destino] +
+            valor + ' ' + simbolos[origen] + ' (' + nombres[origen] + ')' +
+            ' = ' + resultado.toFixed(2) + ' ' + simbolos[destino] + ' (' + nombres[destino] + ')' +
             '</p>';
     }
     
@@ -73,25 +80,26 @@
         var destino = selectDestino.value;
         
         if (isNaN(valor)) {
-            mostrarError('Error: Ingresa un valor numerico valido.');
+            mostrarError('Ingresa un valor numérico válido.');
             return;
         }
         
         if (origen === destino) {
-            mostrarError('Error: Las unidades de origen y destino deben ser diferentes.');
+            mostrarError('Las unidades de origen y destino deben ser diferentes.');
             return;
         }
         
         var resultado = convertirTemperatura(valor, origen, destino);
         
         if (resultado === null) {
-            mostrarError('Error en la conversion.');
+            mostrarError('Error en la conversión.');
             return;
         }
         
         mostrarResultado(valor, origen, destino, resultado);
     }
     
+    // Agregar eventos
     inputValor.addEventListener('input', verificarFormulario);
     selectOrigen.addEventListener('change', verificarFormulario);
     selectDestino.addEventListener('change', verificarFormulario);

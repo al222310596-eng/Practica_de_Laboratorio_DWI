@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practica DWI - Herramientas Interactivas</title>
+    <title>Practica DWI Hugo Erick Garcia Nava</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Practica DWI de Hugo Erick Garcia</h1>
-            <p class="subtitle">Herramientas interactivas con JavaScript</p>
+            <h1>Practica de Laboratorio DWI de Hugo Erick Garcia Nava</h1>
         </header>
 
-        <!-- Menu de Navegacion -->
+        <!-- Menú de Navegación -->
         <nav class="main-nav">
             <button class="nav-btn active" data-tool="tool1">
-                Calculadora de Edad
+                <span class="icon"></span> Calculadora de Edad
             </button>
             <button class="nav-btn" data-tool="tool2">
-                Conversor Termico
+                <span class="icon"></span> Conversor Térmico
             </button>
             <button class="nav-btn" data-tool="tool3">
-                Gestor de Tareas
+                <span class="icon"></span> Gestor de Tareas
             </button>
         </nav>
 
@@ -30,21 +29,24 @@
         <main class="tools-container">
             <!-- Herramienta 1: Calculadora de Edad -->
             <section id="tool1" class="tool-section active">
-                <h2>Calculadora de Tiempo Transcurrido</h2>
-                <p class="tool-description">Ingresa tu fecha de nacimiento para calcular cuanto tiempo ha pasado.</p>
-                
+                <div class="tool-header">
+                    <h2>Proyecto de clase No. 1</h2>
+                    <span class="badge">Calculadora de Edad</span>
+                </div>                
                 <form id="formularioEdad" class="tool-form">
-                    <div class="form-group">
-                        <label for="dia">Dia</label>
-                        <input type="number" id="dia" min="1" max="31" placeholder="1-31" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mes">Mes</label>
-                        <input type="number" id="mes" min="1" max="12" placeholder="1-12" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="anio">Año</label>
-                        <input type="number" id="anio" min="1900" max="2026" placeholder="YYYY" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dia">Día</label>
+                            <input type="number" id="dia" min="1" max="31" placeholder="1-31" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mes">Mes</label>
+                            <input type="number" id="mes" min="1" max="12" placeholder="1-12" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="anio">Año</label>
+                            <input type="number" id="anio" min="1900" max="2026" placeholder="YYYY" required>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Calcular Edad</button>
                 </form>
@@ -52,33 +54,36 @@
                 <div id="resultadoEdad" class="result-container"></div>
             </section>
 
-            <!-- Herramienta 2: Conversor Termico -->
+            <!-- Herramienta 2: Conversor Térmico -->
             <section id="tool2" class="tool-section">
-                <h2>Conversor de Unidades Termicas</h2>
-                <p class="tool-description">Convierte temperaturas entre Celsius, Fahrenheit y Kelvin.</p>
-
+                <div class="tool-header">
+                    <h2>Proyecto de clase No. 2</h2>
+                    <span class="badge">Conversor Térmico</span>
+                </div>
                 <form id="formularioConversor" class="tool-form">
-                    <div class="form-group">
-                        <label for="valorTemp">Valor</label>
-                        <input type="number" id="valorTemp" placeholder="Ingresa el valor" step="any" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="unidadOrigen">Desde</label>
-                        <select id="unidadOrigen" required>
-                            <option value="">Selecciona...</option>
-                            <option value="C">Celsius (C)</option>
-                            <option value="F">Fahrenheit (F)</option>
-                            <option value="K">Kelvin (K)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="unidadDestino">Hacia</label>
-                        <select id="unidadDestino" required>
-                            <option value="">Selecciona...</option>
-                            <option value="C">Celsius (C)</option>
-                            <option value="F">Fahrenheit (F)</option>
-                            <option value="K">Kelvin (K)</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="valorTemp">Valor numérico</label>
+                            <input type="number" id="valorTemp" placeholder="Ingresa el valor" step="any" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="unidadOrigen">Unidad de origen</label>
+                            <select id="unidadOrigen" required>
+                                <option value="">Selecciona...</option>
+                                <option value="C">Celsius (°C)</option>
+                                <option value="F">Fahrenheit (°F)</option>
+                                <option value="K">Kelvin (K)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="unidadDestino">Unidad de destino</label>
+                            <select id="unidadDestino" required>
+                                <option value="">Selecciona...</option>
+                                <option value="C">Celsius (°C)</option>
+                                <option value="F">Fahrenheit (°F)</option>
+                                <option value="K">Kelvin (K)</option>
+                            </select>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary" id="btnConvertir" disabled>Convertir</button>
                 </form>
@@ -88,31 +93,43 @@
 
             <!-- Herramienta 3: Gestor de Tareas -->
             <section id="tool3" class="tool-section">
-                <h2>Gestor de Actividades Diarias</h2>
-                <p class="tool-description">Administra tus tareas: agrega, completa o elimina actividades.</p>
-
+                <div class="tool-header">
+                    <h2>Proyecto de clase No. 3</h2>
+                    <span class="badge">Gestor de Tareas</span>
+                </div>
                 <form id="formularioTareas" class="tool-form">
-                    <div class="form-group" style="flex: 1;">
-                        <input type="text" id="inputTarea" placeholder="Escribe una nueva tarea..." required>
+                    <div class="form-row" style="flex: 1;">
+                        <div class="form-group" style="flex: 1;">
+                            <label for="inputTarea">Nueva tarea</label>
+                            <input type="text" id="inputTarea" placeholder="Escribe una nueva tarea..." required>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Agregar Tarea</button>
                 </form>
 
                 <div id="listaTareas" class="task-list"></div>
                 <div class="task-stats">
-                    <span>Total: <strong id="totalTareas">0</strong></span>
-                    <span>Pendientes: <strong id="tareasPendientes">0</strong></span>
-                    <span>Completadas: <strong id="tareasCompletadas">0</strong></span>
+                    <div class="stat-item">
+                        <span class="stat-label">Total:</span>
+                        <strong id="totalTareas" class="stat-value">0</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Pendientes:</span>
+                        <strong id="tareasPendientes" class="stat-value">0</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Completadas:</span>
+                        <strong id="tareasCompletadas" class="stat-value">0</strong>
+                    </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>Practica DWI Hugo Erick Garcia Nava</p>
+            <p>Práctica DWI por Hugo Erick</p>
         </footer>
     </div>
 
-    <!-- Scripts separados por herramienta -->
     <script src="js/navegacion.js"></script>
     <script src="js/calculadora-edad.js"></script>
     <script src="js/conversor-termico.js"></script>
