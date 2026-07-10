@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica DWI - Herramientas Interactivas</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Practica DWI de Hugo Erick Garcia</h1>
+            <p class="subtitle">Herramientas interactivas con JavaScript</p>
+        </header>
+
+        <!-- Menu de Navegacion -->
+        <nav class="main-nav">
+            <button class="nav-btn active" data-tool="tool1">
+                Calculadora de Edad
+            </button>
+            <button class="nav-btn" data-tool="tool2">
+                Conversor Termico
+            </button>
+            <button class="nav-btn" data-tool="tool3">
+                Gestor de Tareas
+            </button>
+        </nav>
+
+        <!-- Contenedor de Herramientas -->
+        <main class="tools-container">
+            <!-- Herramienta 1: Calculadora de Edad -->
+            <section id="tool1" class="tool-section active">
+                <h2>Calculadora de Tiempo Transcurrido</h2>
+                <p class="tool-description">Ingresa tu fecha de nacimiento para calcular cuanto tiempo ha pasado.</p>
+                
+                <form id="formularioEdad" class="tool-form">
+                    <div class="form-group">
+                        <label for="dia">Dia</label>
+                        <input type="number" id="dia" min="1" max="31" placeholder="1-31" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mes">Mes</label>
+                        <input type="number" id="mes" min="1" max="12" placeholder="1-12" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="anio">Año</label>
+                        <input type="number" id="anio" min="1900" max="2026" placeholder="YYYY" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calcular Edad</button>
+                </form>
+
+                <div id="resultadoEdad" class="result-container"></div>
+            </section>
+
+            <!-- Herramienta 2: Conversor Termico -->
+            <section id="tool2" class="tool-section">
+                <h2>Conversor de Unidades Termicas</h2>
+                <p class="tool-description">Convierte temperaturas entre Celsius, Fahrenheit y Kelvin.</p>
+
+                <form id="formularioConversor" class="tool-form">
+                    <div class="form-group">
+                        <label for="valorTemp">Valor</label>
+                        <input type="number" id="valorTemp" placeholder="Ingresa el valor" step="any" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="unidadOrigen">Desde</label>
+                        <select id="unidadOrigen" required>
+                            <option value="">Selecciona...</option>
+                            <option value="C">Celsius (C)</option>
+                            <option value="F">Fahrenheit (F)</option>
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="unidadDestino">Hacia</label>
+                        <select id="unidadDestino" required>
+                            <option value="">Selecciona...</option>
+                            <option value="C">Celsius (C)</option>
+                            <option value="F">Fahrenheit (F)</option>
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnConvertir" disabled>Convertir</button>
+                </form>
+
+                <div id="resultadoConversion" class="result-container"></div>
+            </section>
+
+            <!-- Herramienta 3: Gestor de Tareas -->
+            <section id="tool3" class="tool-section">
+                <h2>Gestor de Actividades Diarias</h2>
+                <p class="tool-description">Administra tus tareas: agrega, completa o elimina actividades.</p>
+
+                <form id="formularioTareas" class="tool-form">
+                    <div class="form-group" style="flex: 1;">
+                        <input type="text" id="inputTarea" placeholder="Escribe una nueva tarea..." required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar Tarea</button>
+                </form>
+
+                <div id="listaTareas" class="task-list"></div>
+                <div class="task-stats">
+                    <span>Total: <strong id="totalTareas">0</strong></span>
+                    <span>Pendientes: <strong id="tareasPendientes">0</strong></span>
+                    <span>Completadas: <strong id="tareasCompletadas">0</strong></span>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Practica DWI Hugo Erick Garcia Nava</p>
+        </footer>
+    </div>
+
+    <!-- Scripts separados por herramienta -->
+    <script src="js/navegacion.js"></script>
+    <script src="js/calculadora-edad.js"></script>
+    <script src="js/conversor-termico.js"></script>
+    <script src="js/gestor-tareas.js"></script>
+</body>
+</html>
